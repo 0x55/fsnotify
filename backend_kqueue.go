@@ -429,7 +429,7 @@ func (w *Watcher) addWatch(name string, flags uint32) (string, error) {
 		if (fi.Mode()&os.ModeSocket == os.ModeSocket) || (fi.Mode()&os.ModeNamedPipe == os.ModeNamedPipe) {
 			return "", nil
 		}
-
+		fmt.Printf("addWatch mode=%+v ModeSymlink=%+v\n", fi.Mode(), fi.Mode()&os.ModeSymlink == os.ModeSymlink)
 		// Follow Symlinks
 		//
 		// Linux can add unresolvable symlinks to the watch list without issue,
